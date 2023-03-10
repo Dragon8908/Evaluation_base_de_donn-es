@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS Admins(
     mot_passe VARCHAR(50) NOT NULL
 );
 
+--Les complexes avc un admin qui gère chaque complexe
 CREATE TABLE IF NOT EXISTS Complexe(
     id_complexe INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL,
@@ -49,6 +50,7 @@ CREATE TABLE IF NOT EXISTS Prix(
     prix FLOAT NOT NULL
 );
 
+--Une séance pour un film et à quelle heure le film passe
 CREATE TABLE IF NOT EXISTS Seance(
     id_seance INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     date_seance VARCHAR(100) NOT NULL,
@@ -58,6 +60,7 @@ CREATE TABLE IF NOT EXISTS Seance(
     CONSTRAINT fk_id_film FOREIGN KEY (id_film) REFERENCES Film(id_film)
 );
 
+--Ticket avec le prix, la séance et le nom du client dessus
 CREATE TABLE IF NOT EXISTS Ticket(
     id_ticket INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_client INT NOT NULL,
